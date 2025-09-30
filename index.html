@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Restaurante Da Ruby</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <header>
+        <h1>Restaurante Da Ruby</h1>
+        <nav>
+            <ul>
+                <li><a href="#menu">Menu</a></li>
+                <li><a href="#sobre">Sobre Nós</a></li>
+                <li><a href="#galeria">Galeria</a></li>
+                <li><button id="btnFaleConosco">Fale Conosco</button></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="menu">
+            <h2>Nosso Menu</h2>
+            <ul>
+                <li>
+                    <h3>Prato 1: Bife à Parmegiana</h3>
+                    <p>Delicioso bife empanado com molho de tomate e queijo gratinado.</p>
+                    <p><strong>R$ 35,00</strong></p>
+                </li>
+                <li>
+                    <h3>Prato 2: Lasanha de Frango</h3>
+                    <p>Lasanha caseira com frango desfiado e molho branco.</p>
+                    <p><strong>R$ 30,00</strong></p>
+                </li>
+                <li>
+                    <h3>Prato 3: Salada Caesar</h3>
+                    <p>Salada fresca com alface, croutons, parmesão e molho Caesar.</p>
+                    <p><strong>R$ 20,00</strong></p>
+                </li>
+                <li> 
+                    <h3>Prato 4: Camarão Empanado </h3>
+                    <p>Camarões crocantes servidos com molho tártaro caseiro.
+                        R$ 28,00.</p>
+                    <p><strong>R$ 20,00</strong></p>
+                </li>
+                <li>
+                    <h3>Prato 5: Lasanha de Frango com Molho Branco</h3>
+                        <p>Camadas de massa, frango desfiado, molho branco e queijo gratinado.
+                        R$ 32,00.<p>
+                            <p><strong>R$ 32,00</strong></p>
+                </li>
+                <li>
+                    <h3>Prato 6: Torta de Limão</h3>
+                        <p>Massa crocante com recheio de creme de limão e cobertura de merengue. R$ 18,00.<p>
+                        <p><strong>R$ 18,00</strong></p>
+
+                        </li>
+                   
+                </ul>
+            </ul>
+        </section>
+
+        <section id="sobre">
+            <h2>Sobre Nós</h2>
+            <p>O Restaurante Da Ruby te oferece pratos deliciosos preparados com ingredientes frescos e de alta qualidade. Nosso ambiente é acolhedor e perfeito para encontros em família e amigos.</p>
+        </section>
+
+        <section id="galeria">
+            <h2>Galeria de Fotos</h2>
+            <div class="galeria-imagens">
+                <img src="images/prato1.jpg" alt="Bife à Parmegiana" />
+                <img src="images/prato2.jpg" alt="Lasanha de Frango" />
+                <img scr="images/prato3.jpg" alt="Salada Caesar" />
+                <img scr="images/prato4.jpg" alt="Camarão Empanado" />
+                <img scr="images/prato5.jpg" alt="Lasanha de Frango com Molho Branco" />
+                <img scr="images/prato6.jpg" alt="Torta de Limão" />
+                <img src="images/restaurante1.jpg" alt="Ambiente do Restaurante" />
+                <img src="images/restaurante2.jpg" alt="Área Externa" />
+            </div>
+        </section>
+
+        <section id="contato" class="hidden">
+            <h2>Fale Conosco</h2>
+            <form id="formContato">
+                <label for="nome">Nome:</label>
+                <input type="text" id="nome" name="nome" required />
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required />
+
+                <label for="mensagem">Mensagem:</label>
+                <textarea id="mensagem" name="mensagem" rows="4" required></textarea>
+
+                <button type="submit">Enviar</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2024 Restaurante Da Ruby  - Todos os direitos reservados</p>
+    </footer>
+
+    <script>
+        // Mostrar o formulário ao clicar no botão "Fale Conosco"
+        const btnFaleConosco = document.getElementById('btnFaleConosco');
+        const contatoSection = document.getElementById('contato');
+
+        btnFaleConosco.addEventListener('click', () => {
+            // Esconder outras seções para focar no formulário
+            document.querySelectorAll('main > section').forEach(section => {
+                if (section.id !== 'contato') {
+                    section.classList.add('hidden');
+                }
+            });
+            contatoSection.classList.remove('hidden');
+            contatoSection.scrollIntoView({ behavior: 'smooth' });
+        });
+
+        // Opcional: tratar envio do formulário
+        const formContato = document.getElementById('formContato');
+        formContato.addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('Mensagem enviada com sucesso! Obrigado pelo contato.');
+            formContato.reset();
+        });
+    </script>
+</body>
+</html>
